@@ -1,7 +1,7 @@
 Bridge mqtt:broker:mosquitto "Mosquitto" [ host="localhost", port=1883, secure=false, username="openhabian", password="openhabian", clientID="openHAB2" ]
 {
     // Sonoffs
-    Thing mqtt:topic:sonoff_pow_wm "Sonoff POW" @ "Some Other Room" {
+    Thing mqtt:topic:sonoff_pow "Sonoff POW" @ "Some Other Room" {
     Channels:
         Type string : reachable "Reachable"              [ stateTopic="sonoff_pow_wm/tele/sonoff_pow/LWT" ]
         Type switch : power     "Power"                  [ stateTopic="sonoff_pow_wm/stat/sonoff_pow/POWER", commandTopic="cmnd/sonoff_pow/POWER" ]
