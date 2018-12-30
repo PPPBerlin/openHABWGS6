@@ -1,4 +1,11 @@
 sitemap default label="Meine erste Seite"
 {
-	Switch item=Presence_Mobile_Paul label="Pauls Telefon"
+	Frame label="Waschmaschine" {
+		Switch item=Waschmaschine_Switch label="Schalter"
+		Text item=Waschmaschine_V label="Volt"
+		Text item=Waschmaschine_P label="Power"
+		Text item=Waschmaschine_I label="Ampere"
+		Text item=Waschmaschine_E label="kWh"
+		Text item=Waschmaschine_Et label="gesamt kWh"
+	}
 }
