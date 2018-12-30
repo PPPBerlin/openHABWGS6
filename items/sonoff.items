@@ -1,32 +1,9 @@
-// The following definition does 3 things:
-// 1. output ON/OFF command to Sonoff POW device to turn ON/OFF relay based on item switch state
-// 2. output "Status8" command to Sonoff POW device to retrieve voltage/current/power/energy info
-// 3. input status feedback from Sonoff POW device to update the relay state
-//    (this also updates the switch state in the case you press the button on the device itself)
-Group:Switch 	gSonoff	"Group Sonoff"				// All Sonoff devices
-
-Switch Waschmaschine_Switch (gSonoff) {mqtt=" >[broker:sonoff_pow_wm/cmnd/sonoff/power:command:*:default],
-																							>[broker:sonoff_pow_wm/cmnd/sonoff/status:command:*:8],
-																							<[broker:sonoff_pow_wm/stat/sonoff/POWER:state:default]"}
-
-// The following definitions retrieve the info from the Status8 command
-// as well as from the periodic TELE feedback and stores the results in the corresponding items
-// Voltage in V
-Number Waschmaschine_V  { mqtt="	<[broker:sonoff_pow_wm/tele/sonoff/ENERGY:state:JSONPATH($.Voltage)],
-																	<[broker:sonoff_pow_wm/stat/sonoff/STATUS8:state:JSONPATH($.StatusPWR.Voltage)]" }
-// Power in W
-Number Waschmaschine_P  { mqtt="	<[broker:sonoff_pow_wm/tele/sonoff/ENERGY:state:JSONPATH($.Power)],
-																	<[broker:sonoff_pow_wm/stat/sonoff/STATUS8:state:JSONPATH($.StatusPWR.Power)]" }
-// Current in A
-Number Waschmaschine_I  { mqtt="	<[broker:sonoff_pow_wm/tele/sonoff/ENERGY:state:JSONPATH($.Current)],
-																	<[broker:sonoff_pow_wm/stat/sonoff/STATUS8:state:JSONPATH($.StatusPWR.Current)]" }
-// Energy for today in Wh
-Number Waschmaschine_E  { mqtt="	<[broker:sonoff_pow_wm/tele/sonoff/ENERGY:state:JSONPATH($.Today)],
-																	<[broker:sonoff_pow_wm/stat/sonoff/STATUS8:state:JSONPATH($.StatusPWR.Today)]" }
-// Energy since last reset to 0 in Wh
-Number Waschmaschine_Et { mqtt="	<[broker:sonoff_pow_wm/tele/sonoff/ENERGY:state:JSONPATH($.Today)],
-																	<[broker:sonoff_pow_wm/stat/sonoff/STATUS8:state:JSONPATH($.StatusPWR.Total)]" }
-
-// The following definition sends a Status8 command to force sending of voltage/current/power/energy back
-// this switch can be placed on the sitemap/HABpanel to force a manual update of the info
-Switch Sonoff_1_Get_VPI		{mqtt=">[broker:sonoff_pow_wm/cmnd/sonoff/status:command:*:8]"}
+Group  Waschmaschine           "Sonoff POW"                                   <sonoff_pow>    (Sonoff_POW)
+String Waschmaschine_Reachable "Sonoff POW Reachable: [%s]"                   <contactable>   (Waschmaschine) { channel="mqtt:topic:sonoff_pow:reachable" }
+Switch Waschmaschine_Switch    "Sonoff POW Power []"                          <sonoff_pow>    (Waschmaschine) { channel="mqtt:topic:sonoff_pow:power" }
+Number Waschmaschine_P         "Sonoff POW Power load [%.1f W]"               <voltage>       (Waschmaschine) { channel="mqtt:topic:sonoff_pow:powerload" }
+Number Waschmaschine_V         "Sonoff POW Line voltage [%.1f V]"             <voltage>       (Waschmaschine) { channel="mqtt:topic:sonoff_pow:voltage" }
+Number Waschmaschine_I         "Sonoff POW Line current [%.3f A]"             <current>       (Waschmaschine) { channel="mqtt:topic:sonoff_pow:current" }
+Number Waschmaschine_E         "Sonoff POW Total energy today [%.3f kWh]"     <total_energy>  (Waschmaschine) { channel="mqtt:topic:sonoff_pow:total" }
+Number Waschmaschine_Ey        "Sonoff POW Total energy yesterday [%.3f kWh]" <total_energy>  (Waschmaschine) { channel="mqtt:topic:sonoff_pow:totalyest" }
+Number Waschmaschine_RSSI      "Sonoff POW WiFi Signal Strength [%d %%]"      <wifi>          (Waschmaschine) { channel="mqtt:topic:sonoff_pow:rssi" }
