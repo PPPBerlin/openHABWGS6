@@ -4,6 +4,6 @@ Switch Waschmaschine_Switch    "Sonoff POW Power []"                          <s
 Number Waschmaschine_P         "Sonoff POW Power load [%.1f W]"               <voltage>       (Waschmaschine) { channel="mqtt:topic:sonoff_pow:powerload" }
 Number Waschmaschine_V         "Sonoff POW Line voltage [%.1f V]"             <voltage>       (Waschmaschine) { channel="mqtt:topic:sonoff_pow:voltage" }
 Number Waschmaschine_I         "Sonoff POW Line current [%.3f A]"             <current>       (Waschmaschine) { channel="mqtt:topic:sonoff_pow:current" }
-Number Waschmaschine_E         "Sonoff POW Total energy today [%.3f kWh]"     <total_energy>  (Waschmaschine) { channel="mqtt:topic:sonoff_pow:total" }
+Number Waschmaschine_Et         "Sonoff POW Total energy today [%.3f kWh]"     <total_energy>  (Waschmaschine) { channel="mqtt:topic:sonoff_pow:total" }
 Number Waschmaschine_Ey        "Sonoff POW Total energy yesterday [%.3f kWh]" <total_energy>  (Waschmaschine) { channel="mqtt:topic:sonoff_pow:totalyest" }
 Number Waschmaschine_RSSI      "Sonoff POW WiFi Signal Strength [%d %%]"      <wifi>          (Waschmaschine) { channel="mqtt:topic:sonoff_pow:rssi" }

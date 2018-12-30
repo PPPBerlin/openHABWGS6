@@ -3,14 +3,14 @@ Group gFritzbox
   <network>
   (GF_Keller)
 
-Contact paulTelefon
-  "Paul Zuhause [MAP(presence.map):%s]"
-  <network>
-  (gFritzbox)
-  {fritzboxtr064="maconline:C0:EE:FB:4B:A5:30"}
+//Contact paulTelefon
+//  "Paul Zuhause [MAP(presence.map):%s]"
+//  <network>
+//  (gFritzbox)
+//  {fritzboxtr064="maconline:C0:EE:FB:4B:A5:30"}
 
-  Contact melliTelefon
-    "Melli Zuhause [MAP(presence.map):%s]"
-    <network>
-    (gFritzbox)
-    {fritzboxtr064="maconline:84:98:66:EF:B6:B7"}
+//Contact melliTelefon
+//  "Melli Zuhause [MAP(presence.map):%s]"
+//  <network>
+//  (gFritzbox)
+//  {fritzboxtr064="maconline:84:98:66:EF:B6:B7"}
