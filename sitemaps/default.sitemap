@@ -9,6 +9,10 @@ sitemap default label="Meine erste Seite" {
 				Text item=Waschmaschine_Ey label="gestern gesamt kWh"
 				Text item=Waschmaschine_RSSI label="Erreichbarkeit WiFi"
 		}
+		Frame label="Sonne"{
+				Text item=Sunrise_Time label="Sonnenaufgang"
+				Text item=Sunset_Time label="Sonnenuntergang"
+		}
 		//Frame label="Fritzbox"{
 		//	Text label="FRITZ!Box" icon="network" {
 		//		Frame label="Anwesenheit" {
