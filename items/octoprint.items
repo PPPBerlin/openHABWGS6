@@ -1,0 +1,2 @@
+Group  Octoprint                "Octoprint"                                <octoprint>    (octoprint)
+Number Octoprint_Progress       "Octoprint Progress [%d %%]"               <progress>       (Octoprint) { channel="mqtt:topic:octoprint:progress" }

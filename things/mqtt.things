@@ -12,4 +12,9 @@ Bridge mqtt:broker:mosquitto "Mosquitto" [ host="localhost", port=1883, secure=f
         Type number : totalyest "Total energy yesterday" [ stateTopic="tele/sonoff_pow_wm/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Yesterday"]
         Type number : rssi      "WiFi Signal Strength"   [ stateTopic="tele/sonoff_pow_wm/STATE", transformationPattern="JSONPATH:$.Wifi.RSSI"]
     }
+    // Octoprint
+    Thing mqtt:topic:octoprint "Octoprint" @ "Keller" {
+    Channels:
+        Type number : progress "Progress"                [ stateTopic="octoprint/progress/printing", transformationPattern="JSONPATH:$.progress"]
+    }
 }

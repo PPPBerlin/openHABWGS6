@@ -13,6 +13,9 @@ sitemap default label="Meine erste Seite" {
 				Text item=Sunrise_Time label="Sonnenaufgang"
 				Text item=Sunset_Time label="Sonnenuntergang"
 		}
+		Frame label="Octoprint"{
+				Text item=Octoprint_Progress label="Octoprint Fortschritt"
+		}
 		//Frame label="Fritzbox"{
 		//	Text label="FRITZ!Box" icon="network" {
 		//		Frame label="Anwesenheit" {
