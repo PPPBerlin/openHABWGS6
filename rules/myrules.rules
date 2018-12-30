@@ -1,0 +1,31 @@
+import java.util.concurrent.locks.ReentrantLock  // place this at the top of your rules file
+
+var ReentrantLock lock = new ReentrantLock() // place this at the beginning portion of your rules file where vars are defined
+
+// ********************************************************
+// Sonoff POW data update upon state change
+// ********************************************************
+rule "Sonoff POW data update"
+when
+    Item gSonoff received update
+then
+    // using the lock code here will prevent that this rule runs several times
+    // in the case where you have multiple Sonoff devices in the group and only one of them switches
+	var gotLock = new Boolean(lock.tryLock())
+
+	try{
+	    if(gotLock){
+        	Thread::sleep(2000)  // wait for 2s to let voltage/current/power stabilize
+			if (Sonoff_1_Get_VPI.state!=ON)  // toggle the switch to initiate sending the Status8 command
+        		Sonoff_1_Get_VPI.sendCommand(ON)
+    		else
+        		Sonoff_1_Get_VPI.sendCommand(OFF)
+            // add more if ... else ... statements here for your other Sonoff devices
+	    }
+	}
+	finally{
+	    if(gotLock){
+	        lock.unlock();
+	    }
+	}
+end

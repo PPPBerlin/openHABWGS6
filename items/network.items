@@ -1,0 +1,1 @@
+Switch Presence_Mobile_Paul "Pauls Telefon" <network> { channel="network:device:192_168_178_40:online" }

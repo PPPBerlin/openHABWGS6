@@ -1,0 +1,4 @@
+sitemap default label="Meine erste Seite"
+{
+	Switch item=Presence_Mobile_Paul label="Pauls Telefon"
+}
