@@ -1,0 +1,19 @@
+sitemap default label="Meine erste Seite" {
+		Frame label="Waschmaschine" {
+				Switch item=Waschmaschine_Switch label="Schalter"
+				Text item=Waschmaschine_V label="Volt"
+				Text item=Waschmaschine_P label="Power"
+				Text item=Waschmaschine_I label="Ampere"
+				Text item=Waschmaschine_E label="kWh"
+				Text item=Waschmaschine_Et label="gesamt kWh"
+		}
+		Frame label="Fritzbox"{
+			Text label="FRITZ!Box" icon="network" {
+				Frame label="Anwesenheit" {
+					Text item=meinPhone
+					label="iPhone zu Hause"
+					icon="network"
+				} // END FRITZ!Box
+			}
+		}
+}

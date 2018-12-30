@@ -1,0 +1,4 @@
+OPEN=anwesend
+CLOSED=nicht anwesend
+NULL=undefiniert
+-=unbekannt
