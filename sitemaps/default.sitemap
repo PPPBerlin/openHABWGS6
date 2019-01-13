@@ -16,6 +16,16 @@ sitemap default label="Meine erste Seite" {
 		Frame label="Octoprint"{
 				Text item=Octoprint_Progress label="Octoprint Fortschritt"
 		}
+		Frame label="MAX System"{
+				Switch item=maxMode icon="climate" mappings=[AUTOMATIC=AUTOMATIC, MANUAL=MANUAL, BOOST=BOOST]
+				Switch item=maxWallthermostatMode icon="Wall climate" mappings=[AUTOMATIC=AUTOMATIC, MANUAL=MANUAL, BOOST=BOOST]
+				Setpoint item=maxSetTemp minValue=4.5 maxValue=32 step=0.5 icon="temperature"
+				Setpoint item=maxWallthermostatSetTemp minValue=4.5 maxValue=32 step=0.5 icon="temperature"
+				Text item=maxActual icon="temperature"
+				Text item=maxWallthermostatActual icon="temperature"
+				Switch item=maxBattery
+				Switch item=maxWallthermostatBattery
+		}
 		//Frame label="Fritzbox"{
 		//	Text label="FRITZ!Box" icon="network" {
 		//		Frame label="Anwesenheit" {

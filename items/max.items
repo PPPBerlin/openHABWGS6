@@ -1,0 +1,12 @@
+Group gMAX 			"MAX Heating" 	<temperature>	[ "home-group" ]
+
+Switch maxBattery "Battery Low" (gMAX) {channel="max:thermostat:KMD3051484:KMD3033811:battery_low"}
+String maxMode "Thermostat Mode Setting" (gMAX) {channel="max:thermostat:KMD3051484:KMD3033811:mode"}
+Number:Temperature maxActual "Actual measured room temperature  [%.1f %unit%]" (gMAX) {channel="max:thermostat:KMD3051484:KMD3033811:actual_temp"}
+Number:Temperature maxSetTemp "Thermostat temperature setpoint [%.1f %unit%]" (gMAX) {channel="max:thermostat:KMD3051484:KMD3033811:set_temp"}
+Switch maxWallthermostatBattery "Battery Low" (gMAX) {channel="max:wallthermostat:LEQ1152706:battery_low"}
+Number:Temperature maxWallthermostatActual "Actual measured room temperature wall  [%.1f %unit%]" (gMAX) {channel="max:wallthermostat:LEQ1152706:actual_temp"}
+Number:Temperature maxWallthermostatSetTemp "Thermostat temperature setpoint wall [%.1f %unit%]" (gMAX) {channel="max:wallthermostat:LEQ1152706:set_temp"}
+String maxWallthermostatMode "Wallthermostat Mode Setting" (gMAX) {channel="max:wallthermostat:LEQ1152706:mode"}
+Contact maxShuttercontactState "Contact State" (gMAX) {channel="max:shuttercontact:JEQ0610923:KMD4059464:contact_state"}
+Switch maxShuttercontactBattery "Contact Battery Low" <battery> (gMAX) {channel="max:shuttercontact:JEQ0610923:KMD4059464:battery_low"}

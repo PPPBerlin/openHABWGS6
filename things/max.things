@@ -1,0 +1,7 @@
+Bridge max:bridge:KMD1056915 [ ipAddress="192.168.178.62", serialNumber="KMD1056915" ] {
+    Thing thermostat KMD3051484 [ serialNumber="KMD3051484", refreshActualRate=60 ]
+    Thing thermostat KMD3033811 [ serialNumber="KMD3033811", refreshActualRate=60 ]
+    Thing wallthermostat LEQ1152706 [ serialNumber="LEQ1152706" ]
+    Thing shuttercontact JEQ0610923 [ serialNumber="JEQ0610923" ]
+    Thing shuttercontact KMD4059464 [ serialNumber="KMD4059464" ]
+}
