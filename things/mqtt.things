@@ -1,4 +1,4 @@
-Bridge mqtt:broker:mosquitto "Mosquitto" [ host="localhost", port=1883, secure=false, username="openhabian", password="openhabian", clientID="openHAB2" ]
+//Bridge mqtt:broker:mosquitto "Mosquitto" [ host="localhost", port=1883, secure=false, username="openhabian", password="openhabian", clientID="openHAB2" ]
 {
     // Sonoffs
     Thing mqtt:topic:sonoff_pow_wm "Sonoff POW" @ "Keller" {
