@@ -12,6 +12,17 @@ Bridge mqtt:broker:mosquitto "Mosquitto" [ host="localhost", port=1883, secure=f
         Type number : totalyest "Total energy yesterday" [ stateTopic="tele/sonoff_pow_wm/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Yesterday"]
         Type number : rssi      "WiFi Signal Strength"   [ stateTopic="tele/sonoff_pow_wm/STATE", transformationPattern="JSONPATH:$.Wifi.RSSI"]
     }
+    Thing mqtt:topic:sonoff_pow_tr "Sonoff POW" @ "Keller" {
+    Channels:
+        Type string : reachable "Reachable"              [ stateTopic="tele/sonoff_pow_wm/LWT" ]
+        Type switch : power     "Power"                  [ stateTopic="stat/sonoff_pow_wm/POWER", commandTopic="cmnd/sonoff_pow_wm/POWER" ]
+        Type number : powerload "Power load"             [ stateTopic="tele/sonoff_pow_wm/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Power"]
+        Type number : voltage   "Line voltage"           [ stateTopic="tele/sonoff_pow_wm/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Voltage"]
+        Type number : current   "Line current"           [ stateTopic="tele/sonoff_pow_wm/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Current"]
+        Type number : total     "Total energy today"     [ stateTopic="tele/sonoff_pow_wm/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Today"]
+        Type number : totalyest "Total energy yesterday" [ stateTopic="tele/sonoff_pow_wm/SENSOR", transformationPattern="JSONPATH:$.ENERGY.Yesterday"]
+        Type number : rssi      "WiFi Signal Strength"   [ stateTopic="tele/sonoff_pow_wm/STATE", transformationPattern="JSONPATH:$.Wifi.RSSI"]
+    }
     // Octoprint
     Thing mqtt:topic:octoprint "Octoprint" @ "Keller" {
     Channels:
